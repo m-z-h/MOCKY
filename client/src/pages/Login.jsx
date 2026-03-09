@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Mail, Lock, AlertCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Mail, Lock, AlertCircle, ArrowRight, ShieldCheck, ArrowLeft } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -37,6 +37,15 @@ const Login = () => {
       {/* Background Orbs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+
+      <div className="absolute top-8 left-8 z-50">
+        <Link to="/" className="flex items-center space-x-2 text-slate-400 hover:text-primary transition-all group">
+          <div className="w-10 h-10 rounded-xl bg-white shadow-premium flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+            <ArrowLeft className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-black uppercase tracking-widest hidden md:block">Back to Home</span>
+        </Link>
+      </div>
 
       <div className="max-w-md w-full animate-in fade-in slide-in-from-bottom-8 duration-1000">
         <div className="text-center mb-10">

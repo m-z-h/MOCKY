@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { ShieldCheck, AlertCircle, ArrowRight, Mail } from 'lucide-react';
+import { ShieldCheck, AlertCircle, ArrowRight, Mail, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const VerifyOTP = () => {
   const [otp, setOtp] = useState('');
@@ -44,6 +45,15 @@ const VerifyOTP = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50/50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div className="absolute top-8 left-8 z-50">
+        <Link to="/login" className="flex items-center space-x-2 text-slate-400 hover:text-primary transition-all group">
+          <div className="w-10 h-10 rounded-xl bg-white shadow-premium flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+            <ArrowLeft className="w-5 h-5" />
+          </div>
+          <span className="text-xs font-black uppercase tracking-widest hidden md:block">Back to Login</span>
+        </Link>
+      </div>
 
       <div className="max-w-md w-full animate-in fade-in zoom-in duration-1000">
         <div className="bg-white p-12 rounded-[3.5rem] shadow-premium border border-slate-100 relative z-10 text-center">
