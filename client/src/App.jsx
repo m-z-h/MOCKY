@@ -5,7 +5,11 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyOTP from './pages/VerifyOTP';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
+import PublicLayout from './components/PublicLayout';
 import StudentLayout from './components/StudentLayout';
 import StudentHome from './pages/student/StudentHome';
 import TestList from './pages/student/TestList';
@@ -42,7 +46,12 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        {/* Public Routes */}
+        {/* Public Landing Pages */}
+        <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
+        <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
+        <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
+
+        {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/verify-otp" element={<VerifyOTP />} />
@@ -79,7 +88,7 @@ const AppRoutes = () => {
           </ProtectedRoute>
         } />
 
-        {/* Default Route based on user role */}
+        {/* Student Portal */}
         <Route path="/student/*" element={
           <ProtectedRoute allowedRoles={['STUDENT']}>
             <StudentLayout>
@@ -94,8 +103,8 @@ const AppRoutes = () => {
           </ProtectedRoute>
         } />
 
-        {/* Default Route based on user role */}
-        <Route path="/" element={
+        {/* Catch-all Auth Redirect */}
+        <Route path="/portal" element={
           <ProtectedRoute>
             <RoleBasedRedirect />
           </ProtectedRoute>
