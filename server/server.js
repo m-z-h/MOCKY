@@ -28,7 +28,10 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  credentials: true
+}));
 
 // Basic Route
 app.get('/', (req, res) => {
