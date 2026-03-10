@@ -29,7 +29,7 @@ app.use(express.json());
 
 // Enable CORS
 app.use(cors({
-  origin: '*',
+  origin: ['https://mzhmocky.vercel.app', 'http://localhost:5173'],
   credentials: true
 }));
 
